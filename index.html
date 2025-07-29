@@ -1,51 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Long's Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Hacker's Lair - My GitHub Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #33ff33;
+      font-family: 'Fira Code', monospace;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #000000;
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      color: #33ff33;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px #00ff00;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #00ffcc;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      color: #00ffff;
+      border-bottom: 1px dashed #555;
+      padding-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li::before {
+      content: "📁 ";
+      color: #ffaa00;
+    }
+
+    a {
+      color: #00ff99;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      padding: 1rem;
+      border-top: 1px solid #333;
+    }
+
+    .glow {
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00ff00; }
+      to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffff; }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="logo">Long.dev</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <h1 class="glow">💻 Welcome to My Hacker Page</h1>
+    <p>🌐 Built with 💚 by <strong>YourName</strong></p>
   </header>
 
-  <section class="hero">
-    <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="Avatar" class="avatar">
-    <h1>Hello, I'm Long!</h1>
-    <p>A passionate developer sharing my work on GitHub Pages 🚀</p>
-    <a class="btn" href="https://github.com/yourusername" target="_blank">Visit My GitHub</a>
-  </section>
+  <main>
+    <section>
+      <h2>👤 About Me</h2>
+      <p>🧠 I'm a cybersecurity enthusiast who loves breaking stuff & writing about it.</p>
+      <p>🎯 Focused on: <strong>CTF</strong>, <strong>Forensics</strong>, <strong>Crypto</strong>, <strong>Stego</strong></p>
+      <p>💬 "Hack the planet!" 🌍</p>
+    </section>
 
-  <section class="about" id="about">
-    <h2>About Me</h2>
-    <p>I enjoy building tools, solving problems and playing CTF challenges. This page is a simple portfolio powered by GitHub Pages.</p>
-  </section>
+    <section>
+      <h2>📝 Write-ups</h2>
+      <ul>
+        <li><a href="writeups/challenge1.html">Challenge 1 - Stego Madness</a></li>
+        <li><a href="writeups/challenge2.html">Challenge 2 - Crypto Roller</a></li>
+        <li><a href="writeups/malware_hunt.html">Malware Analysis - Operation: ShadowTrace</a></li>
+      </ul>
+      <p>📌 Add more writeups by putting them in <code>/writeups/</code> folder!</p>
+    </section>
 
-  <section class="projects" id="projects">
-    <h2>My Projects</h2>
-    <ul>
-      <li>🔐 CTF Tools</li>
-      <li>🧠 AI Chatbot</li>
-      <li>📊 Data Visualizer</li>
-    </ul>
-  </section>
-
-  <section class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>You can reach me via GitHub or Telegram @yourusername</p>
-  </section>
+    <section>
+      <h2>📫 Contact</h2>
+      <p>🔒 Email: <a href="mailto:hackme@protonmail.com">hackme@protonmail.com</a></p>
+      <p>🐙 GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+    </section>
+  </main>
 
   <footer>
-    © 2025 Long.dev. Built with ❤️ on GitHub Pages.
+    &copy; 2025 - YourName | Hack the world 🔥
   </footer>
 </body>
 </html>
