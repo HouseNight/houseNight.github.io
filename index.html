@@ -11,29 +11,56 @@
 <div class="hero-bg"></div>
 <div class="overlay"></div>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-left">
+        <div class="cyber-icon">⚡</div>
+        <div class="nav-title">NoHax Lab</div>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#posts-anchor">Posts</a>
+        <a href="#about-anchor">About</a>
+        <a href="https://github.com/NoHax" target="_blank">GitHub</a>
+    </div>
+</nav>
+
 <!-- HEADER -->
 <div class="header">
-    <h1>NoHax Blog</h1>
+    <div class="typewriter">
+        <h1>NoHax Blog</h1>
+    </div>
 </div>
 
-<!-- ABOUT ME -->
+<!-- ABOUT -->
+<a id="about-anchor"></a>
 <div class="about-container">
     <div class="about-card">
-        <h2>About Me</h2>
-        <p>Hello, <b>NoHax</b> — just like DFIR, but hate Codingggg :))))</p>
-        <p>This place is to host my CTF Write-ups, DFIR notes, and challenges from Wargames :)))</p>
+        <div class="avatar-wrap">
+            <img src="assets/anhthobaymau7.jpg" alt="NoHax avatar">
+        </div>
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>Hello, <b>NoHax</b> — just like DFIR, but hate Codinggggg :)))</p>
+            <p>This place is to host my CTF write-ups, DFIR notes, and challenges I found in Wargames :)))</p>
+        </div>
     </div>
 </div>
 
 <!-- POSTS -->
+<a id="posts-anchor"></a>
 <div class="post-container" id="posts">
     <h2 style="color:#9ff; text-align:center; grid-column:1/-1;">Loading posts...</h2>
 </div>
 
+<!-- FOOTER -->
+<div class="footer">
+    <span>[*]</span> Powered by GitHub Pages · Logged in as <span>NoHax</span> · &copy; 2025
+</div>
 
 <script>
-    const USERNAME = "housenight"; 
-    const REPO = "blogs";   // ← repo của bạn
+    const USERNAME = "NoHax";
+    const REPO = "blogs";
 
     async function loadPosts() {
         const api = `https://api.github.com/repos/${USERNAME}/${REPO}/contents`;
@@ -46,22 +73,23 @@
             postContainer.innerHTML = "";
 
             files.forEach(file => {
-
                 if (file.name.endsWith(".md")) {
-
                     const title = file.name.replace(".md", "");
-
                     postContainer.innerHTML += `
                         <a class="post-card" href="post.html?file=${file.name}">
                             <h2>${title}</h2>
-                            <p>View post → GitHub: ${REPO}</p>
+                            <p>Bài viết từ GitHub repo → ${REPO}</p>
                         </a>
                     `;
                 }
             });
 
+            if (!postContainer.innerHTML.trim()) {
+                postContainer.innerHTML = "<p style='color:#fff;'>Repo blogs chưa có file .md nào.</p>";
+            }
+
         } catch (error) {
-            document.getElementById("posts").innerHTML = "<p>Lỗi tải bài viết.</p>";
+            document.getElementById("posts").innerHTML = "<p style='color:#fff;'>Lỗi tải bài viết.</p>";
         }
     }
 
