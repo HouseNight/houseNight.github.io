@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài viết</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Markdown renderer -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+
+<div class="hero-bg"></div>
+<div class="overlay"></div>
+
+<div class="post-content">
+
+    <a class="back-btn" href="index.html">← Quay lại</a>
+
+    <div id="content">Đang tải bài viết...</div>
+
+</div>
+
+<script>
+    const params = new URLSearchParams(location.search);
+    const file = params.get("file");
+
+    // Tạm thời dùng file local (sau này đổi sang GitHub raw URL)
+    fetch(file)
+        .then(res => res.text())
+        .then(md => {
+            document.getElementById("content").innerHTML = marked.parse(md);
+        })
+        .catch(() => {
+            document.getElementById("content").innerHTML = "<b>Không tìm thấy bài viết.</b>";
+        });
+</script>
+
+</body>
+</html>
