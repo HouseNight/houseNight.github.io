@@ -11,26 +11,28 @@
 <div class="hero-bg"></div>
 <div class="overlay"></div>
 
+<!-- HEADER -->
 <div class="header">
     <h1>NoHax Blog</h1>
 </div>
 
+<!-- ABOUT ME -->
 <div class="about-container">
     <div class="about-card">
         <h2>About Me</h2>
-        <p>Hello, <b>NoHax</b> — just like DFIR, but hate Codingggggg :)))</p>
-        <p>This place is to View my CTF WU, challenge i found in WarGame :))))</p>
+        <p>Hello, <b>NoHax</b> — just like DFIR, but hate Codinggggg :))))</p>
+        <p>This place is to host my CTF Write-ups, DFIR notes, and challenges from Wargames :)))</p>
     </div>
 </div>
 
+<!-- POSTS -->
 <div class="post-container" id="posts">
-    <h2 style="color:#9ff; margin-bottom:20px;">Loading posts...</h2>
+    <h2 style="color:#9ff; text-align:center;">Loading posts...</h2>
 </div>
 
-
 <script>
-    const USERNAME = "housenight";            // ← sửa đúng username của bạn
-    const REPO = "blogs";       // ← sửa đúng repo bạn muốn lấy bài
+    const USERNAME = "housenight"; 
+    const REPO = "blogs";   // ← repo của bạn
 
     async function loadPosts() {
         const api = `https://api.github.com/repos/${USERNAME}/${REPO}/contents`;
@@ -43,27 +45,22 @@
             postContainer.innerHTML = "";
 
             files.forEach(file => {
-                // Chỉ lấy các file .md trong repo
+
                 if (file.name.endsWith(".md")) {
 
                     const title = file.name.replace(".md", "");
 
-                    const card = `
+                    postContainer.innerHTML += `
                         <a class="post-card" href="post.html?file=${file.name}">
                             <h2>${title}</h2>
-                            <p>Bài viết từ GitHub repo → ${REPO}</p>
+                            <p>View post → GitHub: ${REPO}</p>
                         </a>
                     `;
-                    postContainer.innerHTML += card;
                 }
             });
 
-            if (postContainer.innerHTML.trim() === "") {
-                postContainer.innerHTML = "<p>Repo không có file .md nào.</p>";
-            }
-
-        } catch (e) {
-            document.getElementById("posts").innerHTML = "<p>Lỗi tải bài viết!</p>";
+        } catch (error) {
+            document.getElementById("posts").innerHTML = "<p>Lỗi tải bài viết.</p>";
         }
     }
 
