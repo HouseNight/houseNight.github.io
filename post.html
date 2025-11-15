@@ -11,9 +11,11 @@
 
 <body>
 
+<!-- BACKGROUND -->
 <div class="hero-bg"></div>
 <div class="overlay"></div>
 
+<!-- CONTENT -->
 <div class="post-content">
 
     <a class="back-btn" href="index.html">← Quay lại</a>
@@ -23,17 +25,35 @@
 </div>
 
 <script>
+    // ==== CONFIG SỬA CHỖ NÀY ====
+    const USERNAME = "housenight";                // ← sửa username GitHub
+    const REPO = "blogs";           // ← sửa repo chứa bài viết
+    // =============================
+
+    // Lấy tên file từ URL
     const params = new URLSearchParams(location.search);
     const file = params.get("file");
 
-    // Tạm thời dùng file local (sau này đổi sang GitHub raw URL)
-    fetch(file)
-        .then(res => res.text())
+    // Link raw GitHub
+    const rawURL = `https://raw.githubusercontent.com/${USERNAME}/${REPO}/main/${file}`;
+
+    // Fetch và render markdown
+    fetch(rawURL)
+        .then(res => {
+            if (!res.ok) throw new Error("File not found");
+            return res.text();
+        })
         .then(md => {
             document.getElementById("content").innerHTML = marked.parse(md);
         })
         .catch(() => {
-            document.getElementById("content").innerHTML = "<b>Không tìm thấy bài viết.</b>";
+            document.getElementById("content").innerHTML = `
+                <b>Không tìm thấy bài viết:</b> ${file}<br>
+                <br>
+                ⚠️ Hãy kiểm tra lại:<br>
+                - Repo có tồn tại file không<br>
+                - Nhánh repo có phải <b>main</b> không (nếu là <b>master</b>, mình sẽ sửa lại URL)<br>
+            `;
         });
 </script>
 
