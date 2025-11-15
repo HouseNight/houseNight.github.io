@@ -1,4 +1,8 @@
 /* RESET */
+<div class="hero-bg"></div>
+<div class="overlay"></div>
+
+
 * {
     margin: 0;
     padding: 0;
@@ -130,13 +134,14 @@ body {
 }
 
 .avatar-wrap {
-    width: 90px;
-    height: 90px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    border: 3px solid #0ff;
-    box-shadow: 0 0 25px rgba(0,255,255,0.9);
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px rgba(0,255,255,0.8);
     overflow: hidden;
 }
+
 
 .avatar-wrap img {
     width: 100%;
@@ -252,6 +257,37 @@ body {
 .footer span {
     color: #0ff;
 }
+
+.post-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.post-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(0,255,255,0.05),
+        rgba(0,255,255,0.15),
+        rgba(0,255,255,0.05)
+    );
+    animation: neonMove 4s infinite linear;
+    z-index: -1;
+}
+
+@keyframes neonMove {
+    0% { transform: translateX(-50%); }
+    50% { transform: translateX(50%); }
+    100% { transform: translateX(-50%); }
+}
+
+.post-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 45px rgba(0,255,255,0.8);
+}
+
 
 /* TYPEWRITER ANIMATIONS */
 @keyframes typing {
