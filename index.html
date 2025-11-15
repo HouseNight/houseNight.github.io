@@ -15,25 +15,60 @@
     <h1>NoHax Blog</h1>
 </div>
 
-<div class="post-container">
-
-    <!-- SAMPLE POST (sẽ thay bằng GitHub API sau) -->
-    <a class="post-card" href="post.html?file=sample.md">
-        <h2>Forensic: Memory Case Study</h2>
-        <p>Khám phá memory dump Windows 11, phân tích EBWebView, LSASS...</p>
-    </a>
-
-    <a class="post-card" href="post.html?file=sample2.md">
-        <h2>CTF Writeup: Silent Trap</h2>
-        <p>Phân tích PCAP, chain persistence, decode payload...</p>
-    </a>
-
-    <a class="post-card" href="post.html?file=sample3.md">
-        <h2>Crypto: Custom PRNG Analysis</h2>
-        <p>Reverse thuật toán tạo stream, tìm seed, lấy flag...</p>
-    </a>
-
+<div class="about-container">
+    <div class="about-card">
+        <h2>About Me</h2>
+        <p>Hello, <b>NoHax</b> — just like DFIR, but hate Codingggggg :)))</p>
+        <p>This place is to View my CTF WU, challenge i found in WarGame :))))</p>
+    </div>
 </div>
+
+<div class="post-container" id="posts">
+    <h2 style="color:#9ff; margin-bottom:20px;">Loading posts...</h2>
+</div>
+
+
+<script>
+    const USERNAME = "housenight";            // ← sửa đúng username của bạn
+    const REPO = "blogs";       // ← sửa đúng repo bạn muốn lấy bài
+
+    async function loadPosts() {
+        const api = `https://api.github.com/repos/${USERNAME}/${REPO}/contents`;
+
+        try {
+            const res = await fetch(api);
+            const files = await res.json();
+
+            const postContainer = document.getElementById("posts");
+            postContainer.innerHTML = "";
+
+            files.forEach(file => {
+                // Chỉ lấy các file .md trong repo
+                if (file.name.endsWith(".md")) {
+
+                    const title = file.name.replace(".md", "");
+
+                    const card = `
+                        <a class="post-card" href="post.html?file=${file.name}">
+                            <h2>${title}</h2>
+                            <p>Bài viết từ GitHub repo → ${REPO}</p>
+                        </a>
+                    `;
+                    postContainer.innerHTML += card;
+                }
+            });
+
+            if (postContainer.innerHTML.trim() === "") {
+                postContainer.innerHTML = "<p>Repo không có file .md nào.</p>";
+            }
+
+        } catch (e) {
+            document.getElementById("posts").innerHTML = "<p>Lỗi tải bài viết!</p>";
+        }
+    }
+
+    loadPosts();
+</script>
 
 </body>
 </html>
