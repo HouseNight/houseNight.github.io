@@ -1,123 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hacker's n0g_1ong - My GitHub Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #0f0f0f;
-      color: #33ff33;
-      font-family: 'Fira Code', monospace;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #000000;
-      padding: 2rem;
-      text-align: center;
-      border-bottom: 1px solid #333;
-    }
-
-    header h1 {
-      color: #33ff33;
-      font-size: 2.5rem;
-      text-shadow: 0 0 10px #00ff00;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #00ffcc;
-    }
-
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      color: #00ffff;
-      border-bottom: 1px dashed #555;
-      padding-bottom: 0.5rem;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    li::before {
-      content: "📁 ";
-      color: #ffaa00;
-    }
-
-    a {
-      color: #00ff99;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-      padding: 1rem;
-      border-top: 1px solid #333;
-    }
-
-    .glow {
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #00ff00; }
-      to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffff; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>NoHax Blog</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h1 class="glow">💻 Welcome to My Hacker Page</h1>
-    <p>🌐 Built with 💚 by <strong>n0g_1ong</strong></p>
-  </header>
 
-  <main>
-    <section>
-      <h2>👤 About Me</h2>
-      <p>🧠 I'm a cybersecurity enthusiast who loves breaking stuff & writing about it.</p>
-      <p>🎯 Focused on: <strong>CTF</strong>, <strong>Forensics</strong>, <strong>Crypto</strong>, <strong>Stego</strong></p>
-      <p>💬 "Hack the planet!" 🌍</p>
-    </section>
+<div class="hero-bg"></div>
+<div class="overlay"></div>
 
-    <section>
-      <h2>📝 Write-ups</h2>
-      <ul>
-        <li><a href="writeups/challenge1.html">Challenge 1 - Stego Madness</a></li>
-        <li><a href="writeups/challenge2.html">Challenge 2 - Crypto Roller</a></li>
-        <li><a href="writeups/malware_hunt.html">Malware Analysis - Operation: ShadowTrace</a></li>
-      </ul>
-      <p>📌 Add more writeups by putting them in <code>/writeups/</code> folder!</p>
-    </section>
+<div class="header">
+    <h1>NoHax Blog</h1>
+</div>
 
-    <section>
-      <h2>📫 Contact</h2>
-      <p>🔒 Email: <a href="mailto:hackme@protonmail.com">hackme@protonmail.com</a></p>
-      <p>🐙 GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
-    </section>
-  </main>
+<div class="post-container">
 
-  <footer>
-    &copy; 2025 - YourName | Hack the world 🔥
-  </footer>
+    <!-- SAMPLE POST (sẽ thay bằng GitHub API sau) -->
+    <a class="post-card" href="post.html?file=sample.md">
+        <h2>Forensic: Memory Case Study</h2>
+        <p>Khám phá memory dump Windows 11, phân tích EBWebView, LSASS...</p>
+    </a>
+
+    <a class="post-card" href="post.html?file=sample2.md">
+        <h2>CTF Writeup: Silent Trap</h2>
+        <p>Phân tích PCAP, chain persistence, decode payload...</p>
+    </a>
+
+    <a class="post-card" href="post.html?file=sample3.md">
+        <h2>Crypto: Custom PRNG Analysis</h2>
+        <p>Reverse thuật toán tạo stream, tìm seed, lấy flag...</p>
+    </a>
+
+</div>
+
 </body>
 </html>
