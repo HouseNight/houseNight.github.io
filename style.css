@@ -19,7 +19,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-image: url("assets/background.jpg");
+    background-image: url("assets/digital.jpg");
     background-size: cover;
     background-position: center;
     filter: brightness(0.55);
