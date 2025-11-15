@@ -1,3 +1,6 @@
-# housenight.github.io
+# N0Hax ( n0g_1ong )
 
-This is template for the DFIR newbie. This site is write all about the CTFs i have played and some challange i found in WarGame
+The DFIR newbie. This site is write all about the CTFs i have played and some challange i found in WarGame 
+''' Hate Coding but The Life is always challenge me :))) '''
+
+😵‍💫😵‍💫🔒
