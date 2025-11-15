@@ -26,94 +26,254 @@ body {
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0,0,0,0.6);
     backdrop-filter: blur(4px);
     z-index: -1;
 }
 
-/* HEADER */
+/* NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cyber-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px rgba(0,255,255,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #0ff;
+}
+
+.nav-title {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #aefbff;
+}
+
+.nav-links a {
+    margin-left: 18px;
+    text-decoration: none;
+    color: #caffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #0f0;
+    border-color: #0f0;
+}
+
+/* HEADER + TYPEWRITER */
 .header {
-    padding: 60px 0 30px;
+    padding-top: 90px; /* chừa chỗ cho navbar */
+    padding-bottom: 25px;
     text-align: center;
 }
 
-.header h1 {
+.typewriter {
+    display: inline-block;
+}
+
+.typewriter h1 {
     font-size: 68px;
     font-weight: 900;
     letter-spacing: 3px;
     color: #aefbff;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #0f0;
     text-shadow: 0 0 40px rgba(0,255,255,0.9);
+    animation: typing 3s steps(20, end), blink-caret .7s step-end infinite;
 }
 
 /* ABOUT SECTION */
 .about-container {
     width: 90%;
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto 40px;
 }
 
 .about-card {
-    background: rgba(30,30,30,0.65);
-    padding: 35px 40px;
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    border: 2px solid rgba(0,255,255,0.25);
-    box-shadow: 0 0 35px rgba(0,255,255,0.2);
+    background: rgba(20,20,20,0.8);
+    padding: 30px 35px;
+    border-radius: 22px;
+    backdrop-filter: blur(14px);
+    border: 2px solid rgba(0,255,255,0.3);
+    box-shadow: 0 0 35px rgba(0,255,255,0.25);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: center;
 }
 
-.about-card h2 {
-    font-size: 34px;
-    margin-bottom: 15px;
+.avatar-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid #0ff;
+    box-shadow: 0 0 25px rgba(0,255,255,0.9);
+    overflow: hidden;
+}
+
+.avatar-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
     color: #afffff;
     text-shadow: 0 0 15px rgba(0,255,255,0.7);
 }
 
-.about-card p {
-    font-size: 18px;
+.about-text p {
+    font-size: 16px;
     line-height: 1.7;
-    margin-bottom: 12px;
-    color: #eaffff;
+    margin-bottom: 8px;
 }
 
 /* POSTS GRID */
 .post-container {
     width: 90%;
     max-width: 1400px;
-    margin: 20px auto 120px;
+    margin: 20px auto 80px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-    gap: 40px;
+    gap: 32px;
+}
+
+/* NEON ANIMATED BORDER */
+@keyframes neon-border {
+    0% {
+        box-shadow: 0 0 10px rgba(0,255,255,0.4), 0 0 20px rgba(0,255,255,0.2);
+        border-color: rgba(0,255,255,0.35);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0,255,255,0.9), 0 0 45px rgba(0,255,255,0.6);
+        border-color: rgba(0,255,255,0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0,255,255,0.4), 0 0 20px rgba(0,255,255,0.2);
+        border-color: rgba(0,255,255,0.35);
+    }
 }
 
 /* POST CARD */
 .post-card {
     display: block;
-    padding: 32px;
+    padding: 28px 30px;
     border-radius: 20px;
-    background: rgba(15,15,15,0.65);
-    backdrop-filter: blur(15px);
+    background: rgba(15,15,15,0.78);
+    backdrop-filter: blur(14px);
     border: 2px solid rgba(0,255,255,0.35);
     text-decoration: none;
     color: #dfffff;
-    transition: 0.25s ease;
-    box-shadow: 0 0 25px rgba(0,255,200,0.15);
+    transition: transform 0.25s ease;
+    animation: neon-border 3s infinite;
 }
 
 .post-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 0 45px rgba(0,255,255,0.6);
-    background: rgba(30,30,30,0.85);
+    transform: translateY(-10px);
 }
 
 .post-card h2 {
-    font-size: 26px;
-    margin-bottom: 16px;
+    font-size: 24px;
+    margin-bottom: 12px;
     color: #c3ffff;
     font-weight: 800;
-    text-shadow: 0 0 18px rgba(0,255,255,0.6);
+    text-shadow: 0 0 18px rgba(0,255,255,0.7);
 }
 
 .post-card p {
     color: #e7ffff;
-    font-size: 17px;
+    font-size: 15px;
+}
+
+/* POST PAGE */
+.post-content {
+    width: 90%;
+    max-width: 950px;
+    margin: 110px auto 60px;
+    background: rgba(15,15,15,0.82);
+    padding: 35px 40px;
+    border-radius: 22px;
+    backdrop-filter: blur(14px);
+    border: 2px solid rgba(0,255,255,0.4);
+    box-shadow: 0 0 35px rgba(0,255,255,0.4);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background: rgba(0,255,200,0.15);
+    border: 1px solid rgba(0,255,200,0.6);
+    border-radius: 8px;
+    color: #aef9ff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+/* FOOTER HACKER STYLE */
+.footer {
+    text-align: center;
+    padding: 18px 0 25px;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 13px;
+    color: #00ff80;
+    opacity: 0.9;
+}
+
+.footer span {
+    color: #0ff;
+}
+
+/* TYPEWRITER ANIMATIONS */
+@keyframes typing {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50%      { border-color: #0f0; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .typewriter h1 {
+        font-size: 40px;
+    }
+    .about-card {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+    .post-container {
+        grid-template-columns: 1fr;
+    }
 }
